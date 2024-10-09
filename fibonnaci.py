@@ -39,6 +39,6 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    fibonacci_numbers = fibonacci(args.limit)
+    fibonacci_numbers = fibonacci(args.limit)        # Generate Fibonacci numbers up to the specified limit
 
-    writingfile(fibonacci_numbers, args.output)
+    writingfile(fibonacci_numbers, args.output)      # Write Fibonacci numbers to the specified output file
