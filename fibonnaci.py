@@ -17,28 +17,28 @@ import argparse
 
 def fibonacci(limit):
     fibonacci_numbers = []
-	a, b = 0, 1
-	while a <limit: 
-		fibonacci_numbers.append(a)
-		a, b = b, a + b
+    a, b = 0, 1
+    while a < limit:
+        fibonacci_numbers.append(a)
+        a, b = b, a + b
     return fibonacci_numbers
 
-def writingfile(fibonacci_numbers, filename): 
-	try: 
-		with open(filename, 'w') as f: 
-			for number in fibonacci_numbers: 
-				f.write(f"{number}")
-		print(f"Wrote out Fibonacci numbers to {filename}")
-	except IOError as e: 
-		print(f"Error")
+def writingfile(fibonacci_numbers, filename):
+    try:
+        with open(filename, 'w') as f:
+            for number in fibonacci_numbers:
+                f.write(f"{number}\n")
+        print(f"Wrote out Fibonacci numbers to {filename}")
+    except IOError as e:
+        print(f"An error occurred: {e}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate Fibonacci numbers up to limit")
-	parser.add_argument("limit", type=int, help="Upper limit for Fibonacci numbers")
-	parser.add_argument("output", help="Output file with Fibonacci numbers")
+    parser.add_argument("limit", type=int, help="Upper limit for Fibonacci numbers")
+    parser.add_argument("output", help="Output file with Fibonacci numbers")
 
-	args = parser.parse_args()
+    args = parser.parse_args()
 
-	fibonacci_numbers = fibonacci(args.limit)
+    fibonacci_numbers = fibonacci(args.limit)
 
-	writingfile(fibonacci_numbers, args.output)
+    writingfile(fibonacci_numbers, args.output)
